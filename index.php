@@ -2,12 +2,27 @@
 <html lang="en">
 <head>
     <title>Data Pengiriman Barang</title>
-    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <script src="jquery/jquery-3.4.1.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+
 </head>
+<style>
+ body {
+        background-image: url("169ad737929f700c1555260cb6c86d58.jpg");
+ }
+     
+ </style> 
 <body>
-    
+
     <div class="container p-3 my-3 border">
+ <div class="alert alert-warning">
+    <br>
     <h1 class="text-center">Form Pengiriman Barang</h1>
+ <br>
+
     <?php
     //Include file koneksi, untuk koneksikan ke database
     include "koneksi.php";
@@ -37,7 +52,7 @@
         
 
         //Query input menginput data kedalam tabel pendaftaraan
-        $sql="insert into pendaftaran (nama,nik,jenis_barang,tanggal_pengiriman,kewarganegaraan,email,no_telp,alamat,kode_pos,provinsi,kabupaten,kecamatan) values
+        $sql="insert into pengiriman (nama,nik,jenis_barang,tanggal_pengiriman,kewarganegaraan,email,no_telp,alamat,kode_pos,provinsi,kabupaten,kecamatan) values
 		('$nama','$nik','$jenis_barang','$tanggal_pengiriman','$kewarganegaraan','$email','$no_telp','$alamat','$kode_pos','$provinsi','$kabupaten','$kecamatan')";
 
         //Mengeksekusi/menjalankan query diatas
@@ -45,20 +60,22 @@
 
         //Kondisi apakah berhasil atau tidak dalam mengeksekusi query diatas
         if ($hasil) { 
-            echo "<div class='alert alert-success'> Selamat $nama anda telah berhasil mendaftar.</div>"; 
+            echo "<div class='alert alert-success'> Selamat $nama data anda telah terdaftar!.</div>"; 
         }
         else {
-            echo "<div class='alert alert-danger'> Pendaftaraan Gagal.</div>";
+            echo "<div class='alert alert-danger'> Data Gagal di Masukkan.</div>";
         }
     }
     ?>
         <form id="form" method="post">
-            <div class="alert alert-primary">
+
+            <div class="alert alert-success">
                 <strong>Data Diri</strong>
             </div>
+    
             <div class="row">
                 <div class="col-sm-7">
-
+       
                     <div class="form-group">
                         <label>Nama Lengkap:</label>
                         <input type="text" name="nama" class="form-control" placeholder="Masukan Nama Lengkap">
@@ -116,7 +133,7 @@
                     </div>
                 </div>
             </div>
-            <div class="alert alert-primary">
+            <div class="alert alert-success">
                 <strong>Alamat Tujuan</strong>
             </div>
             <div class="row">
@@ -205,7 +222,7 @@
                 });
             });
             </script>
-           
+           <br>
             <div class="row">
                 <div class="col-sm-4">
                     <button type="submit" name="Submit" id="Submit" class="btn btn-primary">Daftar</button>
